@@ -1,0 +1,16 @@
+# Dependencias y compilaciones generadas
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+frontend/dist/
+
+# Configuración local de editores y sistema
+.cursor/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Variables y secretos locales
+.env
+.env.*
+!.env.example

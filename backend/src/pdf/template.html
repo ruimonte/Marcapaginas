@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=block" rel="stylesheet">
+    <style>
+      @page {
+        size: 50mm 180mm;
+        margin: 0;
+      }
+      html, body {
+        margin: 0;
+        width: 50mm;
+        height: 180mm;
+        padding: 0;
+        font-family: "Noto Serif", serif;
+      }
+      .bookmark {
+        position: relative;
+        width: 50mm;
+        height: 180mm;
+        overflow: hidden;
+      }
+      .background-image {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .overlay {
+        position: absolute;
+        inset: 0;
+        background: transparent;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        text-align: center;
+        padding: 8mm 4mm;
+        box-sizing: border-box;
+      }
+      .bookmark.position-top .overlay {
+        align-items: flex-start;
+      }
+      .bookmark.position-center .overlay {
+        align-items: center;
+      }
+      .bookmark.position-bottom .overlay {
+        align-items: flex-end;
+      }
+      .phrase-image {
+        display: block;
+        width: calc(100% + 1.6mm);
+        height: auto;
+        margin: -0.8mm;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="bookmark position-{{TEXT_POSITION}}">
+      <img class="background-image" src="{{IMAGE_URL}}" alt="Imagen del marcapaginas" />
+      <div class="overlay">
+        <img class="phrase-image" src="{{PHRASE_IMAGE_URL}}" alt="" />
+      </div>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: marcapaginas
+    runtime: docker
+    healthCheckPath: /
+    autoDeploy: true

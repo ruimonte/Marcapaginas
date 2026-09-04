@@ -1,0 +1,293 @@
+:root {
+  /* Design refresh: all visual tuning is kept in this CSS file for easy rollback. */
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: #222831;
+  background: #eef0ef;
+  --surface: #ffffff;
+  --surface-soft: #f6f7f6;
+  --line: #d9ddd9;
+  --text-muted: #5f6872;
+  --accent: #7f1d1d;
+  --accent-hover: #681717;
+  --ink: #263238;
+  --download: #1f6f5b;
+  --download-hover: #185846;
+  --shadow: 0 14px 32px rgba(24, 30, 34, 0.12);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, #fbfbfa 0, #eef0ef 260px),
+    #eef0ef;
+}
+
+.app {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Noto Serif", Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+h2 {
+  margin: 0.35rem 0 0;
+  color: var(--accent);
+  font-family: "Noto Serif", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.subtitle {
+  max-width: 620px;
+  margin: 0.85rem 0 1.5rem;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+.controls,
+.preview-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.preview-panel {
+  text-align: center;
+}
+
+.preview-panel h2 {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 1.1rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+select {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.7rem 0.75rem;
+  color: var(--ink);
+  background: var(--surface-soft);
+  border: 0;
+  border-radius: 8px;
+  outline: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+select:focus {
+  outline: 2px solid rgba(127, 29, 29, 0.38);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 0.72rem 1rem;
+  cursor: pointer;
+  color: #ffffff;
+  background: var(--accent);
+  font-weight: 600;
+  box-shadow: 0 6px 14px rgba(127, 29, 29, 0.18);
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+button:last-child {
+  background: var(--ink);
+  box-shadow: 0 6px 14px rgba(38, 50, 56, 0.16);
+}
+
+button:last-child:hover {
+  background: #182126;
+}
+
+button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.book-promo {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  text-align: center;
+}
+
+.book-promo p {
+  margin: 0 0 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  text-align: justify;
+}
+
+.book-download-button {
+  display: inline-block;
+  border-radius: 8px;
+  padding: 0.65rem 0.95rem;
+  color: #ffffff;
+  background: var(--download);
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 14px rgba(31, 111, 91, 0.18);
+}
+
+.book-download-button:hover {
+  background: var(--download-hover);
+}
+
+.error {
+  margin-top: 1rem;
+  color: #b91c1c;
+}
+
+/* Misma geometría y estilos que backend/src/pdf/template.html (50mm x 180mm) */
+.site-footer {
+  margin-top: 2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0.25rem 0;
+}
+
+.bookmark-preview {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  outline: 1px solid var(--line);
+  border-radius: 2px;
+  width: 50mm;
+  height: 180mm;
+  box-sizing: border-box;
+  box-shadow: 0 16px 28px rgba(24, 30, 34, 0.16);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+.bookmark-preview img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bookmark-preview .overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  padding: 8mm 4mm;
+  box-sizing: border-box;
+}
+
+.bookmark-preview.position-top .overlay {
+  align-items: flex-start;
+}
+
+.bookmark-preview.position-center .overlay {
+  align-items: center;
+}
+
+.bookmark-preview.position-bottom .overlay {
+  align-items: flex-end;
+}
+
+.bookmark-preview .phrase {
+    color: #ffffff;
+    font-family: "Noto Serif", serif;
+    font-size: 4.76mm;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: 0.11mm;
+    width: 100%;
+    margin: 0;
+
+    text-shadow:
+      0 0 0.35mm #000,
+      0.18mm 0.18mm 0.25mm #000,
+      -0.18mm 0.18mm 0.25mm #000,
+      0.18mm -0.18mm 0.25mm #000,
+      -0.18mm -0.18mm 0.25mm #000;
+}
+
+@media (max-width: 840px) {
+  .app {
+    padding: 1.25rem 1rem;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.02rem;
+  }
+
+  .subtitle {
+    font-size: 0.92rem;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .controls,
+  .preview-panel {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 1.55rem;
+  }
+
+  h2 {
+    font-size: 0.94rem;
+  }
+}

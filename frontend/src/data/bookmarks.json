@@ -1,0 +1,111 @@
+{
+  "images": [
+    {
+      "id": "odisea",
+      "name": "Odisea",
+      "url": "/images/odisea.jpg",
+      "textPosition": "center",
+      "phraseIds": ["odisea_es", "odisea_gr"]
+    },
+    {
+      "id": "safo",
+      "name": "Safo",
+      "url": "/images/safo.jpg",
+      "textPosition": "center",
+      "phraseIds": ["safo_es", "safo_gr"]
+    },
+    {
+      "id": "medea",
+      "name": "Medea",
+      "url": "/images/medea.jpg",
+      "textPosition": "bottom",
+      "phraseIds": ["medea_es", "medea_gr"]
+    },
+    {
+      "id": "gorgias",
+      "name": "Gorgias",
+      "url": "/images/gorgias.jpg",
+      "textPosition": "top",
+      "phraseIds": ["gorgias_es", "gorgias_gr"]
+    },
+    {
+      "id": "pericles",
+      "name": "Pericles",
+      "url": "/images/pericles.jpg",
+      "textPosition": "bottom",
+      "phraseIds": ["pericles_es", "pericles_gr"]
+    },
+    {
+      "id": "epicteto",
+      "name": "Epicteto",
+      "url": "/images/epicteto.jpg",
+      "textPosition": "bottom",
+      "phraseIds": ["epicteto_es", "epicteto_gr"]
+    },
+    {
+      "id": "longo",
+      "name": "Longo",
+      "url": "/images/longo.jpg",
+      "textPosition": "top",
+      "phraseIds": ["longo_es", "longo_gr"]
+    }
+  ],
+  "phrases": [
+    {
+      "id": "odisea_es",
+      "text": "Justo en ese momento, al sentir a Odiseo cercano saludando la cola movió y agachó las orejas"
+    },
+    {
+      "id": "odisea_gr",
+      "text": "δὴ τότε γ᾽, ὡς ἐνόησεν Ὀδυσσέα ἐγγὺς ἐόντα, οὐρῇ μέν ῥ᾽ ὅ γ᾽ ἔσηνε καὶ οὔατα κάββαλεν ἄμφω"
+    },
+    {
+      "id": "safo_es",
+      "text": "Pero ¡hay que atreverse a todo!"
+    },
+    {
+      "id": "safo_gr",
+      "text": "ἀλλὰ πᾶν τόλματον"
+    },
+    {
+      "id": "medea_es",
+      "text": "¡Prefiero estar tres veces tras un escudo a parir una sola!"
+    },
+    {
+      "id": "medea_gr",
+      "text": "ὡς τρὶς ἂν παρ᾽ ἀσπίδα στῆναι θέλοιμ᾽ ἂν μᾶλλον ἢ τεκεῖν ἅπαξ"
+    },
+    {
+      "id": "gorgias_es",
+      "text": "La palabra es un gran señor que con un cuerpo muy pequeño y discreto realiza acciones propias de un dios."
+    },
+    {
+      "id": "gorgias_gr",
+      "text": "λόγος δυνάστης μέγας ἐστίν, ὃς σμικροτάτῳ σώματι καὶ ἀφανεστάτῳ θειότατα ἔργα ἀποτελεῖ"
+    },
+    {
+      "id": "pericles_es",
+      "text": "Amamos la belleza sin derroche y amamos el saber sin debilidad."
+    },
+    {
+      "id": "pericles_gr",
+      "text": "φιλοκαλοῦμέν τε γὰρ μετ᾽ εὐτελείας καὶ φιλοσοφοῦμεν ἄνευ μαλακίας"
+    },
+    {
+      "id": "epicteto_es",
+      "text": "Lo que preocupa a los hombres no son los hechos, sino las opiniones sobre los hechos."
+    },
+    {
+      "id": "epicteto_gr",
+      "text": "ταράσσει τοὺς ἀνθρώπους οὐ τὰ πράγματα, ἀλλὰ τὰ περὶ τῶν πραγμάτων δόγματα"
+    },
+    {
+      "id": "longo_es",
+      "text": "Nadie escapó ni escapará a Eros mientras exista la belleza y los ojos la vean."
+    },
+    {
+      "id": "longo_gr",
+      "text": "Πάντως γὰρ οὐδεὶς ἔρωτα ἔφυγεν ἢ φεύξεται, μέχρι ἂν κάλλος ᾖ καὶ ὀφθαλμοὶ βλέπωσιν"
+    }
+  ]
+}

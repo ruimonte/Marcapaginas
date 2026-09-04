@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 1800">
+  <defs>
+    <linearGradient id="seaSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="60%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0c4a6e" />
+    </linearGradient>
+  </defs>
+  <rect width="500" height="1800" fill="url(#seaSky)" />
+  <path d="M0 1200 Q 70 1120 140 1200 T 280 1200 T 420 1200 T 560 1200 V1800 H0 Z" fill="#38bdf8" opacity="0.9" />
+  <path d="M0 1320 Q 90 1240 180 1320 T 360 1320 T 540 1320 V1800 H0 Z" fill="#7dd3fc" opacity="0.75" />
+</svg>
