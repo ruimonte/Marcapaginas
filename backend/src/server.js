@@ -9,7 +9,7 @@ const app = express();
 const PORT = Number(process.env.PORT) || 3001;
 const HOST = "0.0.0.0";
 const serverDir = dirname(fileURLToPath(import.meta.url));
-const frontendDistDir = join(serverDir, "..", "..", "frontend-dist");
+const frontendDistDir = join(serverDir, "..", "frontend-dist");
 
 app.use(cors());
 app.use(express.json());
