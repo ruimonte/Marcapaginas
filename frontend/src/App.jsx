@@ -74,22 +74,28 @@ function App() {
   };
 
   const handlePrint = async () => {
-    const objectUrl = await createObjectUrl();
-    if (!objectUrl) return;
-
-    const printWindow = window.open(objectUrl, "_blank", "noopener,noreferrer");
+    // Debe abrirse durante el gesto del usuario; si se hace después de esperar
+    // al PDF, los navegadores lo bloquean como una ventana emergente.
+    const printWindow = window.open("", "_blank");
     if (!printWindow) {
-      setError("No se pudo abrir la ventana de impresion.");
-      URL.revokeObjectURL(objectUrl);
+      setError("El navegador ha bloqueado la ventana de impresion. Permite las ventanas emergentes e inténtalo de nuevo.");
+      return;
+    }
+
+    const objectUrl = await createObjectUrl();
+    if (!objectUrl) {
+      printWindow.close();
       return;
     }
 
     const revoke = () => URL.revokeObjectURL(objectUrl);
     printWindow.addEventListener("load", () => {
+      if (!printWindow.location.href.startsWith("blob:")) return;
       printWindow.focus();
       printWindow.print();
       revoke();
-    });
+    }, { once: true });
+    printWindow.location.replace(objectUrl);
   };
 
   return (
