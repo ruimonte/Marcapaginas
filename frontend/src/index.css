@@ -69,6 +69,10 @@ h2 {
   align-items: start;
 }
 
+.left-column {
+  min-width: 0;
+}
+
 .controls,
 .preview-panel {
   background: var(--surface);
@@ -84,6 +88,15 @@ h2 {
 
 .preview-panel h2 {
   margin-bottom: 1rem;
+}
+
+.project-logo {
+  display: block;
+  width: 130px;
+  height: 130px;
+  margin: 4.5rem auto 0;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 label {

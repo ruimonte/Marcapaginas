@@ -105,54 +105,58 @@ function App() {
       <p className="subtitle">Selecciona una imagen y una frase para crear tu marcapáginas listo para imprimir.</p>
 
       <section className="layout">
-        <div className="controls">
-          <label>
-            Imagen
-            <select
-              value={selectedImageId}
-              onChange={(event) => setSelectedImageId(event.target.value)}
-              disabled={loadingPdf}
-            >
-              {bookmarksData.images.map((image) => (
-                <option key={image.id} value={image.id}>
-                  {image.name}
-                </option>
-              ))}
-            </select>
-          </label>
+        <div className="left-column">
+          <div className="controls">
+            <label>
+              Imagen
+              <select
+                value={selectedImageId}
+                onChange={(event) => setSelectedImageId(event.target.value)}
+                disabled={loadingPdf}
+              >
+                {bookmarksData.images.map((image) => (
+                  <option key={image.id} value={image.id}>
+                    {image.name}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <label>
-            Frase
-            <select
-              value={selectedPhraseId}
-              onChange={(event) => setSelectedPhraseId(event.target.value)}
-              disabled={loadingPdf}
-            >
-              {availablePhrases.map((phrase) => (
-                <option key={phrase.id} value={phrase.id}>
-                  {phrase.text}
-                </option>
-              ))}
-            </select>
-          </label>
+            <label>
+              Frase
+              <select
+                value={selectedPhraseId}
+                onChange={(event) => setSelectedPhraseId(event.target.value)}
+                disabled={loadingPdf}
+              >
+                {availablePhrases.map((phrase) => (
+                  <option key={phrase.id} value={phrase.id}>
+                    {phrase.text}
+                  </option>
+                ))}
+              </select>
+            </label>
 
-          <div className="actions">
-            <button onClick={handleDownload} disabled={loadingPdf}>
-              {loadingPdf ? "Generando..." : "Descargar PDF"}
-            </button>
-            <button onClick={handlePrint} disabled={loadingPdf}>
-              Imprimir
-            </button>
+            <div className="actions">
+              <button onClick={handleDownload} disabled={loadingPdf}>
+                {loadingPdf ? "Generando..." : "Descargar PDF"}
+              </button>
+              <button onClick={handlePrint} disabled={loadingPdf}>
+                Imprimir
+              </button>
+            </div>
+
+            <div className="book-promo">
+              <p>24 textos seleccionados e ilustrados, con actividades para su trabajo en el aula de Griego, Herencia y Pervivencia</p>
+              <a className="book-download-button" href={BOOK_DOWNLOAD_URL} download>
+                Descarga gratuita del libro
+              </a>
+            </div>
+
+            {error ? <p className="error">{error}</p> : null}
           </div>
 
-          <div className="book-promo">
-            <p>24 textos seleccionados e ilustrados, con actividades para su trabajo en el aula de Griego, Herencia y Pervivencia</p>
-            <a className="book-download-button" href={BOOK_DOWNLOAD_URL} download>
-              Descarga gratuita del libro
-            </a>
-          </div>
-
-          {error ? <p className="error">{error}</p> : null}
+          <img className="project-logo" src="/suenyosombra.jpg" alt="El sueño de una sombra" />
         </div>
 
         <div className="preview-panel">
