@@ -148,9 +148,9 @@ function App() {
 
             <div className="book-promo">
               <p>24 textos seleccionados e ilustrados, con actividades para su trabajo en el aula de Griego, Herencia y Pervivencia</p>
-              <a className="book-download-button" href={BOOK_DOWNLOAD_URL} download>
+              <button className="book-download-button" type="button" disabled title="Próximamente disponible">
                 Descarga gratuita del libro
-              </a>
+              </button>
             </div>
 
             {error ? <p className="error">{error}</p> : null}
