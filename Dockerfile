@@ -1,6 +1,24 @@
-# Imagen oficial de Puppeteer: incluye Chromium y las dependencias necesarias
-# para generar PDFs en un proveedor cloud.
-FROM ghcr.io/puppeteer/puppeteer:latest
+# Node.js 24.22.1 incluye las correcciones de seguridad de octubre de 2026.
+FROM node:24.22.1-bookworm
+
+ENV PUPPETEER_CACHE_DIR=/home/pptruser/.cache/puppeteer
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        ca-certificates \
+        fonts-ipafont-gothic \
+        fonts-wqy-zenhei \
+        fonts-thai-tlwg \
+        fonts-khmeros \
+        fonts-kacst \
+        fonts-freefont-ttf \
+        dbus \
+        dbus-x11 \
+    && rm -rf /var/lib/apt/lists/* \
+    && groupadd -r pptruser \
+    && useradd -r -g pptruser -m -d /home/pptruser pptruser \
+    && mkdir -p /app \
+    && chown pptruser:pptruser /app /home/pptruser/.cache
 
 WORKDIR /app
 
@@ -10,6 +28,9 @@ COPY --chown=pptruser:pptruser backend/package*.json ./backend/
 USER pptruser
 RUN cd frontend && npm ci
 RUN cd backend && npm ci --omit=dev
+
+USER root
+RUN cd backend && npx puppeteer browsers install chrome --install-deps
 
 COPY --chown=pptruser:pptruser frontend ./frontend
 COPY --chown=pptruser:pptruser backend ./backend
