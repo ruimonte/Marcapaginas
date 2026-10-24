@@ -32,7 +32,10 @@ RUN cd backend && npm ci --omit=dev
 USER root
 RUN cd backend \
     && npx puppeteer browsers install chrome --install-deps \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && chown -R pptruser:pptruser /home/pptruser/.cache/puppeteer
+
+USER pptruser
 
 COPY --chown=pptruser:pptruser frontend ./frontend
 COPY --chown=pptruser:pptruser backend ./backend
