@@ -14,7 +14,6 @@ RUN apt-get update \
         fonts-freefont-ttf \
         dbus \
         dbus-x11 \
-    && rm -rf /var/lib/apt/lists/* \
     && groupadd -r pptruser \
     && useradd -r -g pptruser -m -d /home/pptruser pptruser \
     && mkdir -p /app \
@@ -31,7 +30,9 @@ RUN cd frontend && npm ci
 RUN cd backend && npm ci --omit=dev
 
 USER root
-RUN cd backend && npx puppeteer browsers install chrome --install-deps
+RUN cd backend \
+    && npx puppeteer browsers install chrome --install-deps \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY --chown=pptruser:pptruser frontend ./frontend
 COPY --chown=pptruser:pptruser backend ./backend
