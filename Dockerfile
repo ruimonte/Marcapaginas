@@ -18,6 +18,7 @@ RUN apt-get update \
     && groupadd -r pptruser \
     && useradd -r -g pptruser -m -d /home/pptruser pptruser \
     && mkdir -p /app \
+    && mkdir -p /home/pptruser/.cache \
     && chown pptruser:pptruser /app /home/pptruser/.cache
 
 WORKDIR /app
